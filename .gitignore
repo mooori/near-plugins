@@ -1,4 +1,5 @@
 /target
+near-plugins/tests/**/target
 Cargo.lock
 
 # Ignore IDE data

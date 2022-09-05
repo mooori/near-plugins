@@ -1,5 +1,6 @@
 use proc_macro::{self, TokenStream};
 
+mod access_controllable;
 mod full_access_key_fallback;
 mod ownable;
 mod pausable;
@@ -39,4 +40,9 @@ pub fn pause(attrs: TokenStream, item: TokenStream) -> TokenStream {
 #[proc_macro_attribute]
 pub fn if_paused(attrs: TokenStream, item: TokenStream) -> TokenStream {
     pausable::if_paused(attrs, item)
+}
+
+#[proc_macro_derive(AccessControllable, attributes(access_controllable))]
+pub fn derive_access_controllable(input: TokenStream) -> TokenStream {
+    access_controllable::derive_access_controllable(input)
 }
