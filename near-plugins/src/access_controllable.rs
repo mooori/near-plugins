@@ -1,3 +1,3 @@
 pub trait AccessControllable {
-    fn storage_prefix(&self) -> &[u8];
+    fn acl_storage_prefix(&self) -> &[u8];
 }

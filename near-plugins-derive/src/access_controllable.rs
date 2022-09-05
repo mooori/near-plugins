@@ -36,7 +36,7 @@ pub fn derive_access_controllable(input: TokenStream) -> TokenStream {
     let output = quote! {
         #[near_bindgen]
         impl AccessControllable for #ident {
-            fn storage_prefix(&self) -> &[u8] {
+            fn acl_storage_prefix(&self) -> &[u8] {
                 (#storage_prefix).as_bytes()
             }
         }
