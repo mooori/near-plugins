@@ -39,6 +39,10 @@ pub fn derive_access_controllable(input: TokenStream) -> TokenStream {
             fn acl_storage_prefix(&self) -> &[u8] {
                 (#storage_prefix).as_bytes()
             }
+
+            fn acl_has_role(&self, role: u8, account_id: ::near_sdk::AccountId) -> bool {
+                false // TODO
+            }
         }
     };
 
