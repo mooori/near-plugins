@@ -8,7 +8,7 @@ use near_sdk::AccountId;
 ///
 /// ```
 /// // Hence this is not possible:
-/// impl<R> AccessControllable<R> for /// Contract {/* ... */}
+/// impl<R> AccessControllable<R> for Contract {/* ... */}
 /// ```
 ///
 /// Instead, roles are represented by `u8`, which allows contract developers to
