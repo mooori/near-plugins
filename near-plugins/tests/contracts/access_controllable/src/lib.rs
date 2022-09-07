@@ -3,9 +3,17 @@ use near_sdk::borsh::{self, BorshDeserialize, BorshSerialize};
 use near_sdk::{env, log, near_bindgen, AccountId};
 use std::collections::HashMap;
 
+/// TODO `derive(AccessControlRole)` to prepare the enum (strum derives, etc)
+#[derive(strum::EnumIter, strum::FromRepr, strum::AsRefStr)]
+pub enum Role {
+    Level1,
+    Level2,
+    Level3,
+}
+
 #[near_bindgen]
 #[derive(AccessControllable, Default, BorshDeserialize, BorshSerialize)]
-#[access_controllable(storage_prefix = "__foo")]
+#[access_controllable(storage_prefix = "__foo", role_enum = "Role")]
 pub struct StatusMessage {
     records: HashMap<AccountId, String>,
 }

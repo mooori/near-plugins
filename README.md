@@ -178,6 +178,12 @@ impl Counter {
 To upgrade the contract first call `up_stage_code` passing the binary as first argument serialized as borsh. Then call `up_deploy_code`.
 This functions must be called from the owner.
 
+### [AccessControllable](/near-plugins/src/access_controllable.rs)
+
+#### Requirements
+- Crates to add to the dependencies of the contract:
+    - [`strum`](https://crates.io/crates/strum) >= 0.24 
+
 ## Contributors Notes
 
 Traits doesn't contain any implementation, even though some interfaces are self-contained enough to have it.

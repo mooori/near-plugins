@@ -11,12 +11,15 @@ use syn::{parse_macro_input, DeriveInput};
 )]
 struct Opts {
     storage_prefix: Option<String>,
+    role_enum: Option<syn::Path>,
 }
 
+// TODO remove default
 impl Default for Opts {
     fn default() -> Self {
         Self {
             storage_prefix: Some("__acl".to_string()),
+            role_enum: None,
         }
     }
 }
@@ -32,6 +35,9 @@ pub fn derive_access_controllable(input: TokenStream) -> TokenStream {
             .storage_prefix
             .expect("Default Opts should have storage prefix")
     });
+    let role_enum = opts
+        .role_enum
+        .expect("Derive input should specify role_enum");
 
     let output = quote! {
         #[near_bindgen]
